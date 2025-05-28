@@ -4,7 +4,7 @@ async function loadImage() {
 
   // Escludi immagini di cibo o piatti
   const isFood = data.alt_description?.toLowerCase().includes("food") || data.alt_description?.toLowerCase().includes("dish");
-  if (isFood) {
+  if (not isFood) {
     loadImage(); // carica un'altra immagine se è cibo
     return;
   }
