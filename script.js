@@ -1,5 +1,5 @@
 async function loadImage() {
-  const response = await fetch("https://api.unsplash.com/photos/random?query=octopus,squid&client_id=Gtm9c4Em02v8-yvl__DK70bRYOwOnoOmJGbvTFF0TUY");
+  const response = await fetch("https://api.unsplash.com/photos/random?query=cute+octopus,underwater+octopus,funny+squid,octopus+illustration&client_id=Gtm9c4Em02v8-yvl__DK70bRYOwOnoOmJGbvTFF0TUY");
   const data = await response.json();
 
   const imgElement = document.getElementById("octopus-image");
