@@ -15,3 +15,7 @@ async function loadImage() {
     hearts.style.display = "none";
   }
 }
+
+window.onload = function () {
+  loadImage();
+};
