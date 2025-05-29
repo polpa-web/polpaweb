@@ -43,10 +43,12 @@ h1 {
 
 /* Mascotte */
 .mascot {
-  width: 50px;
+  width: 40px;       /* o anche 30px se vuoi mini-mini polpine */
   height: auto;
   margin: 0 10px;
+  vertical-align: middle;
 }
+
 
 /* Immagine principale */
 #octopus-image {
