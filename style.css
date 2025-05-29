@@ -135,3 +135,29 @@ footer {
   border-top: 2px dashed #fff;
   line-height: 1.5;
 }
+
+/* Mascotte fissa in basso a destra */
+#mascotte-polpo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  animation: floaty 3s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Sezione commenti */
+#commenti {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 2px dashed white;
+  font-size: 1.2rem;
+}
+
+#commenti h2 {
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
+  margin-bottom: 10px;
+}
+
