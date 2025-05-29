@@ -42,10 +42,10 @@ h1 {
 }
 
 /* Mascotte */
-#mascot {
+.mascot {
   width: 50px;
   height: auto;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 
 /* Immagine principale */
