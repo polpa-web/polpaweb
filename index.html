@@ -4,6 +4,46 @@
   <meta charset="UTF-8">
   <title>POLPAWEB: squiddiness at its finest!!</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const commentsRef = ref(db, 'comments');
+
+    window.submitComment = () => {
+      const input = document.getElementById("comment-input");
+      if (input.value.trim()) {
+        push(commentsRef, { text: input.value });
+        input.value = '';
+      }
+    };
+
+    window.onload = () => {
+      loadImage();
+      onValue(commentsRef, (snapshot) => {
+        const container = document.getElementById("comments-list");
+        container.innerHTML = '';
+        snapshot.forEach(child => {
+          const p = document.createElement("p");
+          p.textContent = child.val().text;
+          container.appendChild(p);
+        });
+      });
+    };
+  </script>
 </head>
 <body>
 
@@ -23,6 +63,14 @@
   <!-- Bottone centrato -->
   <div id="button-wrapper">
     <button id="new-octopus"><span>NEW POLP</span></button>
+  </div>
+
+  <!-- Commenti -->
+  <div id="comments-section">
+    <h2>Polpini Comments 🐙</h2>
+    <input type="text" id="comment-input" placeholder="Leave your squiddy thought..." />
+    <button onclick="submitComment()">Commenta</button>
+    <div id="comments-list"></div>
   </div>
 
   <!-- Footer -->
