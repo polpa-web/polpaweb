@@ -141,9 +141,10 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 120px;
+  width: 40px;
   animation: floaty 3s ease-in-out infinite;
   z-index: 10;
+  opacity: 0.85;
 }
 
 /* Sezione commenti */
