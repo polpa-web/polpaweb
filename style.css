@@ -44,7 +44,7 @@ h1 {
 
 /* Mascotte polpo */
 #mascotte-polpo {
-  width: 2px;
+  width: 20px;
   animation: floaty 3s ease-in-out infinite;
 }
 
