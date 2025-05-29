@@ -24,13 +24,25 @@ body::before {
   z-index: -1;
 }
 
-/* Wrapper del titolo e mascotte */
+/* Wrapper titolo + mascotte */
 #header-with-mascot {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Mascotte a lato del titolo */
+.mascot {
+  width: 60px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.mascot.flip {
+  transform: scaleX(-1);
 }
 
 /* Titolo */
@@ -40,15 +52,6 @@ h1 {
   text-shadow: 2px 2px 6px #ff69b4;
   margin: 0;
 }
-
-/* Mascotte */
-.mascot {
-  width: 40px;       /* o anche 30px se vuoi mini-mini polpine */
-  height: auto;
-  margin: 0 10px;
-  vertical-align: middle;
-}
-
 
 /* Immagine principale */
 #octopus-image {
@@ -90,7 +93,6 @@ button#new-octopus:hover {
   box-shadow: 0 10px 25px rgba(0, 179, 255, 0.7), inset 0 -4px 10px rgba(255,255,255,0.6);
 }
 
-/* Bollicine animate */
 button#new-octopus::after {
   content: "";
   position: absolute;
