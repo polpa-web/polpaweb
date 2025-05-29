@@ -36,9 +36,10 @@ body::before {
 
 /* Mascotte a lato del titolo */
 .mascot {
-  width: 60px;
+  width: 85px;
   height: auto;
   margin: 0 10px;
+  vertical-align: middle;
 }
 
 .mascot.flip {
