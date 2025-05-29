@@ -55,43 +55,47 @@ h1 {
 }
 
 button#new-octopus {
-  background: linear-gradient(to right, #8ee4ff, #b3f0ff);
-  border: none;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 30px;
+  background: #9be7ff;
+  background-image: linear-gradient(145deg, #a2f4ff, #6fd8ff);
   color: #003344;
+  font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 174, 255, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 179, 255, 0.5), inset 0 -4px 8px rgba(255,255,255,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease;
 }
 
 button#new-octopus:hover {
   transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 179, 255, 0.7), inset 0 -4px 10px rgba(255,255,255,0.6);
 }
 
-/* Bollicine */
+/* Bollicine animate */
 button#new-octopus::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 10.01%);
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 11%);
   background-size: 20px 20px;
-  animation: bubbles 4s linear infinite;
+  animation: sparkle 4s linear infinite;
+  pointer-events: none;
   z-index: 0;
 }
 
-@keyframes bubbles {
-  from {
+@keyframes sparkle {
+  0% {
     background-position: 0 0;
   }
-  to {
+  100% {
     background-position: 100% 100%;
   }
 }
@@ -100,6 +104,7 @@ button#new-octopus span {
   position: relative;
   z-index: 1;
 }
+
 
 
 /* Cuoricini magici */
