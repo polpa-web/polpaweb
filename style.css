@@ -54,6 +54,54 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+button#new-octopus {
+  background: linear-gradient(to right, #8ee4ff, #b3f0ff);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  color: #003344;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 174, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+button#new-octopus:hover {
+  transform: scale(1.05);
+}
+
+/* Bollicine */
+button#new-octopus::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 10.01%);
+  background-size: 20px 20px;
+  animation: bubbles 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes bubbles {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+button#new-octopus span {
+  position: relative;
+  z-index: 1;
+}
+
+
 /* Cuoricini magici */
 #hearts {
   display: none;
