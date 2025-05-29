@@ -44,7 +44,7 @@ h1 {
 
 /* Mascotte polpo */
 #mascotte-polpo {
-  width: 60px;
+  width: 2px;
   animation: floaty 3s ease-in-out infinite;
 }
 
@@ -64,6 +64,13 @@ h1 {
 }
 
 /* Bottone centrato */
+/* Wrapper del bottone centrato */
+#button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 button#new-octopus {
   background: #9be7ff;
   background-image: linear-gradient(145deg, #a2f4ff, #6fd8ff);
@@ -79,8 +86,8 @@ button#new-octopus {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: hidden;
-  display: block;
-  margin: 20px auto;
+}
+
 }
 
 button#new-octopus:hover {
