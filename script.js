@@ -1,5 +1,5 @@
 // Numero totale di immagini nella cartella "images"
-const imageCount = 35;
+const imageCount = 37;
 
 function getRandomImagePath() {
   const index = Math.floor(Math.random() * imageCount) + 1;
