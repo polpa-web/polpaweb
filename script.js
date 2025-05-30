@@ -6,7 +6,7 @@ function getRandomImagePath() {
   return `images/polpo${index}.jpg`;
 }
 
-function loadImage() {
+export function loadImage() {
   const imgElement = document.getElementById("octopus-image");
   const imagePath = getRandomImagePath();
   imgElement.src = imagePath;
