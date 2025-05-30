@@ -20,3 +20,4 @@ function loadImage() {
     hearts.style.display = "none"; // Chiudi la logica
   }
 }
+document.getElementById("new-octopus").addEventListener("click", loadImage);
