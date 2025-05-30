@@ -1,9 +1,9 @@
-// Numero totale di immagini che hai caricato nella cartella "images"
+// Numero totale di immagini nella cartella "images"
 const imageCount = 35;
 
 function getRandomImagePath() {
   const index = Math.floor(Math.random() * imageCount) + 1;
-  return images/polpo${index}.jpg;
+  return `images/polpo${index}.jpg`; // Template literal e nome file coerente
 }
 
 function loadImage() {
@@ -16,10 +16,7 @@ function loadImage() {
 
   if (isLove) {
     hearts.style.display = "block";
-    setTimeout(() => hearts.style.display = "none", 1500);
   } else {
-    hearts.style.display = "none";
+    hearts.style.display = "none"; // Chiudi la logica
   }
 }
-
-document.getElementById("new-octopus").addEventListener("click", loadImage);
