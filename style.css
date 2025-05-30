@@ -1,192 +1,99 @@
-/* Corpo e sfondo */
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #6dd5fa, #2980b9);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  color: white;
-  text-align: center;
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>POLPAWEB: squiddiness at its finest!!</title>
 
-/* Effetto onde marine */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.ibb.co/7bQQYkX/underwater.png') repeat;
-  opacity: 0.1;
-  z-index: -1;
-}
+  <!-- Collegamento al CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-/* Wrapper titolo + mascotte */
-#header-with-mascot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
+  <!-- Firebase + Funzioni in JS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-/* Mascotte a lato del titolo */
-.mascot {
-  width: 85px;
-  height: auto;
-  margin: 0 10px;
-  vertical-align: middle;
-}
+    // 🔐 CONFIG FIREBASE: Sostituisci questi valori con i TUOI dati reali da Firebase Console
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4lrtmej3QhkfT_Ff60e6-rRWPnpHqKi4",
+      authDomain: "polpawebcom.firebaseapp.com",
+      databaseURL: "https://polpawebcom.firebaseio.com",
+      projectId: "polpawebcom",
+      storageBucket: "polpawebcom.appspot.com",
+      messagingSenderId: "676513696855",
+      appId: "1:676513696855:web:5083066d8f43cc85e2a712"
+    };
 
-.mascot.flip {
-  transform: scaleX(-1);
-}
+    // 🔌 Inizializza Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const commentsRef = ref(db, 'comments');
 
-/* Titolo */
-h1 {
-  font-size: 2.8rem;
-  color: #fff4f8;
-  text-shadow: 2px 2px 6px #ff69b4;
-  margin: 0;
-}
+    // 📤 Funzione per inviare un commento
+    window.submitComment = () => {
+      const input = document.getElementById("comment-input");
+      if (input.value.trim()) {
+        push(commentsRef, { text: input.value });
+        input.value = '';
+      }
+    };
 
-/* Immagine principale */
-#octopus-image {
-  max-width: 80%;
-  height: auto;
-  border: 10px dotted #ffb6c1;
-  border-radius: 20px;
-  margin: 40px auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
+    // 📥 Caricamento dei commenti dal database
+    window.addEventListener("load", () => {
+      // Carica l'immagine random
+      if (window.loadImage) loadImage();
 
-/* Wrapper del bottone centrato */
-#button-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+      // Mostra i commenti salvati
+      onValue(commentsRef, (snapshot) => {
+        const container = document.getElementById("comments-list");
+        container.innerHTML = '';
+        snapshot.forEach(child => {
+          const p = document.createElement("p");
+          p.textContent = child.val().text;
+          container.appendChild(p);
+        });
+      });
+    });
+  </script>
+</head>
+<body>
 
-/* Bottone NEW POLP */
-button#new-octopus {
-  background: #9be7ff;
-  background-image: linear-gradient(145deg, #a2f4ff, #6fd8ff);
-  color: #003344;
-  font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 50px;
-  padding: 14px 32px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 179, 255, 0.5), inset 0 -4px 8px rgba(255,255,255,0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
+  <!-- Titolo con mascotte -->
+  <div id="header-with-mascot">
+    <img class="mascot" src="images/mascotte.jpg" alt="Polpina a sinistra" />
+    <h1>POLPAWEB: squiddiness at its finest!!</h1>
+    <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina a destra" />
+  </div>
 
-button#new-octopus:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 179, 255, 0.7), inset 0 -4px 10px rgba(255,255,255,0.6);
-}
+  <!-- Cuoricini -->
+  <div id="hearts">💖💖💖</div>
 
-button#new-octopus::after {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  top: -10%;
-  left: -10%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 11%);
-  background-size: 20px 20px;
-  animation: sparkle 4s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
+  <!-- Immagine polposa -->
+  <img id="octopus-image" src="" alt="CUTE SQUID" />
 
-@keyframes sparkle {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
+  <!-- Bottone NEW POLP -->
+  <div id="button-wrapper">
+    <button id="new-octopus"><span>NEW POLP</span></button>
+  </div>
 
-button#new-octopus span {
-  position: relative;
-  z-index: 1;
-}
+  <!-- Sezione commenti -->
+  <div id="comments-section">
+    <h2>🐙 Polpini Comments 🐙</h2>
+    <input type="text" id="comment-input" placeholder="Leave your squiddy thought..." />
+    <button onclick="submitComment()">Send</button>
+    <div id="comments-list"></div>
+  </div>
 
-/* Cuoricini magici */
-#hearts {
-  display: none;
-  font-size: 4rem;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: float 1.5s ease;
-  z-index: 100;
-}
+  <!-- Footer poetico -->
+  <footer>
+    <p>
+      Welcome on POLPAWEB 🐙🦑! The squiddiest website on the internet!<br />
+      Click to reveal an amazingly wonderful image of an octopus or squid! 💖<br />
+      POLPOLPOLPOLPOLPOLPOLP. POLP! EVVIVA I POLPINI!<br />
+      DANKJEWEL VOOR DE FIETS!
+    </p>
+  </footer>
 
-@keyframes float {
-  0% { transform: translate(-50%, 0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translate(-50%, -50px); opacity: 0; }
-}
-
-/* Footer con poesia */
-footer {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  font-size: 1rem;
-  color: #fff;
-  border-top: 2px dashed #fff;
-  line-height: 1.5;
-}
-
-
-/* Commenti */
-#comments-section {
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 40px auto;
-  padding: 20px;
-  width: 80%;
-  border-radius: 20px;
-  color: white;
-  font-family: 'Comic Sans MS', cursive;
-  border: 2px dashed white;
-}
-
-#comments-section h2 {
-  margin-top: 0;
-}
-
-#comment-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 60%;
-  margin-right: 10px;
-  font-size: 1rem;
-}
-
-#comments-section button {
-  padding: 10px 20px;
-  background: #ffb6c1;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#comments-list {
-  margin-top: 20px;
-  text-align: left;
-}
+  <!-- Script JS esterno -->
+  <script src="script.js"></script>
+</body>
+</html>
