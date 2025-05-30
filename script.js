@@ -3,10 +3,10 @@ const imageCount = 35;
 
 function getRandomImagePath() {
   const index = Math.floor(Math.random() * imageCount) + 1;
-  return `images/polpo${index}.jpg`;
+  return images/polpo${index}.jpg;
 }
 
-export function loadImage() {
+function loadImage() {
   const imgElement = document.getElementById("octopus-image");
   const imagePath = getRandomImagePath();
   imgElement.src = imagePath;
