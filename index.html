@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>POLPAWEB: squiddiness at its finest!!</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Firebase SDK -->
+
+  <!-- Collegamento al CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase + Funzioni in JS -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+    // 🔐 CONFIG FIREBASE: Sostituisci questi valori con i TUOI dati reali da Firebase Console
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      databaseURL: "https://YOUR_PROJECT.firebaseio.com",
-      projectId: "YOUR_PROJECT",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyD4lrtmej3QhkfT_Ff60e6-rRWPnpHqKi4",
+      authDomain: "polpawebcom.firebaseapp.com",
+      databaseURL: "https://polpawebcom.firebaseio.com",
+      projectId: "polpawebcom",
+      storageBucket: "polpawebcom.appspot.com",
+      messagingSenderId: "676513696855",
+      appId: "1:676513696855:web:5083066d8f43cc85e2a712"
     };
 
+    // 🔌 Inizializza Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const commentsRef = ref(db, 'comments');
 
+    // 📤 Funzione per inviare un commento
     window.submitComment = () => {
       const input = document.getElementById("comment-input");
       if (input.value.trim()) {
@@ -31,8 +37,12 @@
       }
     };
 
-    window.onload = () => {
-      loadImage();
+    // 📥 Caricamento dei commenti dal database
+    window.addEventListener("load", () => {
+      // Carica l'immagine random
+      if (window.loadImage) loadImage();
+
+      // Mostra i commenti salvati
       onValue(commentsRef, (snapshot) => {
         const container = document.getElementById("comments-list");
         container.innerHTML = '';
@@ -42,30 +52,30 @@
           container.appendChild(p);
         });
       });
-    };
+    });
   </script>
 </head>
 <body>
 
-  <!-- Titolo con due mascotte -->
+  <!-- Titolo con mascotte -->
   <div id="header-with-mascot">
-    <img class="mascot" src="images/mascotte.jpg" alt="Polpina a sinistra">
+    <img class="mascot" src="images/mascotte.jpg" alt="Polpina a sinistra" />
     <h1>POLPAWEB: squiddiness at its finest!!</h1>
-    <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina a destra">
+    <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina a destra" />
   </div>
 
   <!-- Cuoricini -->
   <div id="hearts">💖💖💖</div>
 
-  <!-- Immagine random -->
+  <!-- Immagine polposa -->
   <img id="octopus-image" src="" alt="CUTE SQUID" />
 
-  <!-- Bottone centrato -->
+  <!-- Bottone NEW POLP -->
   <div id="button-wrapper">
     <button id="new-octopus"><span>NEW POLP</span></button>
   </div>
 
-  <!-- Commenti -->
+  <!-- Sezione commenti -->
   <div id="comments-section">
     <h2>🐙 Polpini Comments 🐙</h2>
     <input type="text" id="comment-input" placeholder="Leave your squiddy thought..." />
@@ -73,18 +83,17 @@
     <div id="comments-list"></div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer poetico -->
   <footer>
     <p>
-      Welcome on POLPAWEB🐙🦑! The squiddiest website on the internet!  
-      Click to reveal an amazingly wonderful image of an octopus or squid! 💖  
-      POLPOLPOLPOLPOLPOLPOLP. POLP! EVVIVA I POLPINI!  
+      Welcome on POLPAWEB 🐙🦑! The squiddiest website on the internet!<br />
+      Click to reveal an amazingly wonderful image of an octopus or squid! 💖<br />
+      POLPOLPOLPOLPOLPOLPOLP. POLP! EVVIVA I POLPINI!<br />
       DANKJEWEL VOOR DE FIETS!
     </p>
   </footer>
 
-  <!-- Script -->
+  <!-- Script JS esterno -->
   <script src="script.js"></script>
-
 </body>
 </html>
