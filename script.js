@@ -19,5 +19,21 @@ function loadImage() {
   } else {
     hearts.style.display = "none"; // Chiudi la logica
   }
+
+  document.getElementById("octopus-image").addEventListener("click", function (e) {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.textContent = "❤️";
+  document.body.appendChild(heart);
+
+  const rect = e.target.getBoundingClientRect();
+  heart.style.left = `${e.clientX}px`;
+  heart.style.top = `${e.clientY}px`;
+
+  setTimeout(() => {
+    heart.remove();
+  }, 1000);
+});
+
 }
 document.getElementById("new-octopus").addEventListener("click", loadImage);
