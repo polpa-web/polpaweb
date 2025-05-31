@@ -26,6 +26,30 @@ function loadImage() {
   heart.textContent = "❤️";
   document.body.appendChild(heart);
 
+    document.getElementById("octopus-image").addEventListener("click", function (e) {
+  const colors = ['deeppink', 'red', 'hotpink', 'violet', 'magenta'];
+
+  for (let i = 0; i < 3; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "💖";
+
+    const x = e.clientX + (Math.random() * 60 - 30); // posizione sparsa
+    const y = e.clientY + (Math.random() * 20 - 10);
+
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 1500);
+  }
+});
+
+
   const rect = e.target.getBoundingClientRect();
   heart.style.left = `${e.clientX}px`;
   heart.style.top = `${e.clientY}px`;
