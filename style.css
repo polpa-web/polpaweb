@@ -56,7 +56,7 @@ h1 {
 
 /* Immagine principale */
 #octopus-image {
-  width: 350px;            /* Larghezza fissa chic */
+  width: 400px;            /* Larghezza fissa chic */
   max-width: 90%;          /* Responsiva su schermi piccoli */
   height: auto;            /* Mantieni proporzioni */
   display: block;          /* Permette la centratura */
