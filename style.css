@@ -56,13 +56,22 @@ h1 {
 
 /* Immagine principale */
 #octopus-image {
-  max-width: 80%;
-  height: auto;
-  border: 10px dotted #ffb6c1;
-  border-radius: 20px;
-  margin: 40px auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 350px;            /* Larghezza fissa chic */
+  max-width: 90%;          /* Responsiva su schermi piccoli */
+  height: auto;            /* Mantieni proporzioni */
+  display: block;          /* Permette la centratura */
+  margin: 40px auto;       /* Centra con aria intorno */
+  border: 10px dotted #ffb6c1;  /* Bordo da polpo sognatore */
+  border-radius: 20px;     /* Bordi morbidi, come tentacoli coccolosi */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombra elegante */
+  transition: transform 0.3s ease; /* Smooth animazione */
 }
+
+/* Effetto hover: il polpo fluttua come in amore */
+#octopus-image:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
 
 /* Wrapper del bottone centrato */
 #button-wrapper {
