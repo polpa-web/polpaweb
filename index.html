@@ -1,45 +1,109 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>POLPAWEB</title>
+  <title>POLPAWEB: squiddiness at its finest!!</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4lrtmej3QhkfT_Ff60e6-rRWPnpHqKi4",
+      authDomain: "polpawebcom.firebaseapp.com",
+      databaseURL: "https://polpawebcom.firebaseio.com",
+      projectId: "polpawebcom",
+      storageBucket: "polpawebcom.appspot.com",
+      messagingSenderId: "676513696855",
+      appId: "1:676513696855:web:5083066d8f43cc85e2a712"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const commentsRef = ref(db, 'comments');
+
+    window.submitComment = () => {
+      const input = document.getElementById("comment-input");
+      if (input.value.trim()) {
+        push(commentsRef, { text: input.value });
+        input.value = '';
+      }
+    };
+
+    window.onload = () => {
+      loadImage();
+      onValue(commentsRef, (snapshot) => {
+        const container = document.getElementById("comments-list");
+        container.innerHTML = '';
+        snapshot.forEach(child => {
+          const p = document.createElement("p");
+          p.textContent = child.val().text;
+          container.appendChild(p);
+        });
+      });
+    };
+  </script>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>🐙 POLPAMENU</h2>
-    <ul>
-      <li><a href="index.html">🖼️ Immagini</a></li>
-      <li><a href="fun-facts.html">🧠 Fun Facts</a></li>
-    </ul>
-  </div>
+  <!-- PAGE WRAPPER for sidebar + main content -->
+  <div class="page-wrapper">
 
-  <!-- Contenuto principale -->
-  <div class="main-content">
-    <h1>Benvenutə su POLPAWEB!</h1>
-    <p>Qui troverai immagini random di polpi scattate e caricate da me 🐙💜</p>
-    <!-- Qui ci sta il tuo script JS per le immagini -->
-    <img src="img/octopus1.jpg" alt="Polpo random" id="octo-img" width="300">
-    <br>
-    <button onclick="changeImage()">Nuovo Polpo</button>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2>🦑 POLPAMENU</h2>
+      <ul>
+        <li><a href="index.html">🖼️ Home</a></li>
+        <li><a href="fun-facts.html">🧠 Fun Facts</a></li>
+      </ul>
+    </div>
 
-    <script>
-      const images = [
-        'img/octopus1.jpg',
-        'img/octopus2.jpg',
-        'img/octopus3.jpg',
-        'img/octopus4.jpg'
-      ];
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
 
-      function changeImage() {
-        const img = document.getElementById('octo-img');
-        const randomIndex = Math.floor(Math.random() * images.length);
-        img.src = images[randomIndex];
-      }
-    </script>
-  </div>
+      <!-- Header with mascot -->
+      <div id="header-with-mascot">
+        <img class="mascot" src="images/mascotte.jpg" alt="Polpina left">
+        <h1>POLPAWEB: squiddiness at its finest!!</h1>
+        <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina right">
+      </div>
 
+      <!-- Hearts -->
+      <div id="hearts">💖💖💖</div>
+
+      <!-- Random image -->
+      <img id="octopus-image" src="" alt="CUTE SQUID" />
+
+      <!-- Button -->
+      <div id="button-wrapper">
+        <button id="new-octopus"><span>NEW POLP</span></button>
+      </div>
+
+      <!-- Comments -->
+      <div id="comments-section">
+        <h2>🐙 Polpini Comments 🐙</h2>
+        <input type="text" id="comment-input" placeholder="Leave your squiddy thought..." />
+        <button onclick="submitComment()">Send</button>
+        <div id="comments-list"></div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          Welcome on POLPAWEB🐙🦑! The squiddiest website on the internet!  
+          Click to reveal an amazingly wonderful image of an octopus or squid! 💖  
+          POLPOLPOLPOLPOLPOLPOLP. POLP! LONG LIVE THE POLPINI!  
+          DANKJEWEL VOOR DE FIETS!
+        </p>
+      </footer>
+
+    </div> <!-- END main-content -->
+
+  </div> <!-- END page-wrapper -->
+
+  <!-- Your JS file -->
+  <script src="script.js"></script>
 </body>
 </html>
