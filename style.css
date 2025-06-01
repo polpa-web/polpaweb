@@ -75,23 +75,27 @@ h1 {
 .heart {
   position: absolute;
   font-size: 2rem;
-  animation: pop-fade 1s ease-out forwards;
   pointer-events: none;
+  animation: popUp 0.8s ease-out forwards;
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
 
-@keyframes pop-fade {
+@keyframes popUp {
   0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
   }
-  50% {
-    transform: translate(-50%, -70%) scale(1.5);
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -70%) scale(1.2);
+  }
+  60% {
+    transform: translate(-50%, -90%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -100%) scale(0.8);
+    transform: translate(-50%, -120%) scale(0.8);
   }
 }
 
