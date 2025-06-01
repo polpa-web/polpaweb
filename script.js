@@ -1,9 +1,8 @@
-// Numero totale di immagini nella cartella "images"
 const imageCount = 37;
 
 function getRandomImagePath() {
   const index = Math.floor(Math.random() * imageCount) + 1;
-  return `images/polpo${index}.jpg`; // Template literal e nome file coerente
+  return `images/polpo${index}.jpg`;
 }
 
 function loadImage() {
@@ -14,27 +13,33 @@ function loadImage() {
   const isLove = imagePath.toLowerCase().includes("love") || imagePath.toLowerCase().includes("cuore");
   const hearts = document.getElementById("hearts");
 
-  if (isLove) {
-    hearts.style.display = "block";
-  } else {
-    hearts.style.display = "none"; // Chiudi la logica
-  }
+  hearts.style.display = isLove ? "block" : "none";
+}
 
-  document.getElementById("octopus-image").addEventListener("click", function (e) {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.textContent = "❤️";
-  document.body.appendChild(heart);
+// Solo una volta, dopo che il DOM è pronto
+window.addEventListener("DOMContentLoaded", () => {
+  const imgElement = document.getElementById("octopus-image");
+  const newPolpButton = document.getElementById("new-octopus");
 
-   
-  const rect = e.target.getBoundingClientRect();
-  heart.style.left = `${e.clientX}px`;
-  heart.style.top = `${e.clientY}px`;
+  newPolpButton.addEventListener("click", loadImage);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 1000);
+  imgElement.addEventListener("click", (e) => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "❤️";
+    document.body.appendChild(heart);
+
+    // Calcolo posizione con offset rispetto al rettangolo dell'immagine
+    const rect = e.target.getBoundingClientRect();
+    heart.style.left = `${e.clientX}px`;
+    heart.style.top = `${e.clientY}px`;
+
+    setTimeout(() => {
+      heart.remove();
+    }, 1000);
+  });
+
+  // Carica un'immagine iniziale
+  loadImage();
 });
 
-}
-document.getElementById("new-octopus").addEventListener("click", loadImage);
