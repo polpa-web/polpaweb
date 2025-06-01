@@ -45,6 +45,53 @@
       });
     };
   </script>
+
+  <!-- Heart + Image Randomizer -->
+  <script>
+    const polps = [
+      'https://i.ibb.co/qpmSJqf/polp-left.png',
+      'https://i.ibb.co/YpVqv8D/polp-cool.png',
+      'https://i.ibb.co/y8xYvjp/polp-pink.png',
+      'https://i.ibb.co/ydcMK9v/polp-smile.png',
+      'https://i.ibb.co/Trbb1G4/polp-surprised.png'
+    ];
+
+    function loadImage() {
+      const img = document.getElementById("octopus-image");
+      img.src = polps[Math.floor(Math.random() * polps.length)];
+    }
+
+    function spawnHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💖';
+      heart.style.position = 'fixed';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = Math.random() * window.innerHeight + 'px';
+      heart.style.fontSize = '2rem';
+      heart.style.zIndex = '9999';
+      heart.style.pointerEvents = 'none';
+      heart.style.animation = 'fadeOut 1.5s ease forwards';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const button = document.getElementById("new-octopus");
+      button.addEventListener("click", () => {
+        loadImage();
+        spawnHeart();
+      });
+    });
+  </script>
+
+  <style>
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-100px); }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -103,7 +150,7 @@
 
   </div> <!-- END page-wrapper -->
 
-  <!-- Your JS file -->
+  <!-- script.js remains linked in case of extra logic -->
   <script src="script.js"></script>
 </body>
 </html>
