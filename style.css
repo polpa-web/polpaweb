@@ -74,21 +74,27 @@ h1 {
 /* Cuoricini volanti */
 .heart {
   position: absolute;
-  font-size: 2.5rem;
-  color: deeppink;
-  animation: majesticFloat 1.5s ease-out forwards;
+  font-size: 2rem;
+  animation: pop-fade 1s ease-out forwards;
   pointer-events: none;
-  z-index: 1000;
-  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 }
 
-@keyframes majesticFloat {
-  0% { transform: translate(0, 0) scale(0.8) rotate(0deg); opacity: 1; }
-  25% { transform: translate(-10px, -30px) scale(1.2) rotate(-10deg); opacity: 0.9; }
-  50% { transform: translate(10px, -60px) scale(1.5) rotate(10deg); opacity: 0.8; }
-  75% { transform: translate(-5px, -90px) scale(1.7) rotate(-5deg); opacity: 0.5; }
-  100% { transform: translate(0, -120px) scale(2) rotate(0deg); opacity: 0; }
+@keyframes pop-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -70%) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.8);
+  }
 }
+
 
 /* Bottone centrato */
 #button-wrapper {
