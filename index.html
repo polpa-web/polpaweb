@@ -1,90 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>POLPAWEB: squiddiness at its finest!!</title>
+  <title>POLPAWEB</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyD4lrtmej3QhkfT_Ff60e6-rRWPnpHqKi4",
-      authDomain: "polpawebcom.firebaseapp.com",
-      databaseURL: "https://polpawebcom.firebaseio.com",
-      projectId: "polpawebcom",
-      storageBucket: "polpawebcom.appspot.com",
-      messagingSenderId: "676513696855",
-      appId: "1:676513696855:web:5083066d8f43cc85e2a712"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const commentsRef = ref(db, 'comments');
-
-    window.submitComment = () => {
-      const input = document.getElementById("comment-input");
-      if (input.value.trim()) {
-        push(commentsRef, { text: input.value });
-        input.value = '';
-      }
-    };
-
-    window.onload = () => {
-      loadImage();
-      onValue(commentsRef, (snapshot) => {
-        const container = document.getElementById("comments-list");
-        container.innerHTML = '';
-        snapshot.forEach(child => {
-          const p = document.createElement("p");
-          p.textContent = child.val().text;
-          container.appendChild(p);
-        });
-      });
-    };
-  </script>
 </head>
 <body>
 
-  <!-- Titolo con due mascotte -->
-  <div id="header-with-mascot">
-    <img class="mascot" src="images/mascotte.jpg" alt="Polpina a sinistra">
-    <h1>POLPAWEB: squiddiness at its finest!!</h1>
-    <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina a destra">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>🐙 POLPAMENU</h2>
+    <ul>
+      <li><a href="index.html">🖼️ Immagini</a></li>
+      <li><a href="fun-facts.html">🧠 Fun Facts</a></li>
+    </ul>
   </div>
 
-  <!-- Cuoricini -->
-  <div id="hearts">💖💖💖</div>
+  <!-- Contenuto principale -->
+  <div class="main-content">
+    <h1>Benvenutə su POLPAWEB!</h1>
+    <p>Qui troverai immagini random di polpi scattate e caricate da me 🐙💜</p>
+    <!-- Qui ci sta il tuo script JS per le immagini -->
+    <img src="img/octopus1.jpg" alt="Polpo random" id="octo-img" width="300">
+    <br>
+    <button onclick="changeImage()">Nuovo Polpo</button>
 
-  <!-- Immagine random -->
-  <img id="octopus-image" src="" alt="CUTE SQUID" />
+    <script>
+      const images = [
+        'img/octopus1.jpg',
+        'img/octopus2.jpg',
+        'img/octopus3.jpg',
+        'img/octopus4.jpg'
+      ];
 
-  <!-- Bottone centrato -->
-  <div id="button-wrapper">
-    <button id="new-octopus"><span>NEW POLP</span></button>
+      function changeImage() {
+        const img = document.getElementById('octo-img');
+        const randomIndex = Math.floor(Math.random() * images.length);
+        img.src = images[randomIndex];
+      }
+    </script>
   </div>
-
-  <!-- Commenti -->
-  <div id="comments-section">
-    <h2>🐙 Polpini Comments 🐙</h2>
-    <input type="text" id="comment-input" placeholder="Leave your squiddy thought..." />
-    <button onclick="submitComment()">Send</button>
-    <div id="comments-list"></div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>
-      Welcome on POLPAWEB🐙🦑! The squiddiest website on the internet!  
-      Click to reveal an amazingly wonderful image of an octopus or squid! 💖  
-      POLPOLPOLPOLPOLPOLPOLP. POLP! EVVIVA I POLPINI!  
-      DANKJEWEL VOOR DE FIETS!
-    </p>
-  </footer>
-
-  <!-- Script -->
-  <script src="script.js"></script>
 
 </body>
 </html>
