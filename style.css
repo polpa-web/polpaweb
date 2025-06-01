@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, #6dd5fa, #2980b9);
-  font-family: 'Quicksand', cursive, sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: white;
   text-align: center;
   position: relative;
@@ -52,6 +52,7 @@ h1 {
   color: #fff4f8;
   text-shadow: 2px 2px 6px #ff69b4;
   margin: 0;
+  font-family: 'Baloo 2', cursive;
 }
 
 /* Immagine principale */
@@ -99,7 +100,6 @@ h1 {
   }
 }
 
-
 /* Bottone centrato */
 #button-wrapper {
   display: flex;
@@ -112,7 +112,7 @@ button#new-octopus {
   background: #9be7ff;
   background-image: linear-gradient(145deg, #a2f4ff, #6fd8ff);
   color: #003344;
-  font-family: 'Quicksand', 'Trebuchet MS', cursive;
+  font-family: 'Baloo 2', cursive;
   font-size: 1.3rem;
   font-weight: bold;
   border: none;
@@ -154,27 +154,6 @@ button#new-octopus span {
   z-index: 1;
 }
 
-/* Cuoricini magici */
-.heart {
-  position: absolute;
-  font-size: 2rem;
-  pointer-events: none;
-  animation: floatUp 1s ease-out forwards;
-  z-index: 1000;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-60px) scale(1.5);
-    opacity: 0;
-  }
-}
-
-
 /* Footer poetico */
 footer {
   margin-top: 40px;
@@ -184,6 +163,7 @@ footer {
   color: #fff;
   border-top: 2px dashed #fff;
   line-height: 1.5;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Sezione commenti */
@@ -194,12 +174,13 @@ footer {
   width: 80%;
   border-radius: 20px;
   color: white;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Nunito', sans-serif;
   border: 2px dashed white;
 }
 
 #comments-section h2 {
   margin-top: 0;
+  font-family: 'Baloo 2', cursive;
 }
 
 #comment-input {
@@ -209,6 +190,7 @@ footer {
   width: 60%;
   margin-right: 10px;
   font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
 }
 
 #comments-section button {
@@ -218,6 +200,7 @@ footer {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  font-family: 'Baloo 2', cursive;
 }
 
 #comments-list {
@@ -245,6 +228,7 @@ footer {
 .sidebar h2 {
   margin-top: 0;
   font-size: 20px;
+  font-family: 'Baloo 2', cursive;
 }
 
 .sidebar ul {
@@ -260,6 +244,7 @@ footer {
   text-decoration: none;
   color: #553c1a;
   font-weight: bold;
+  font-family: 'Nunito', sans-serif;
 }
 
 .sidebar a:hover {
@@ -289,6 +274,7 @@ footer {
   text-align: left;
   box-shadow: 0 4px 12px rgba(255, 192, 203, 0.2);
   transition: transform 0.2s ease;
+  font-family: 'Nunito', sans-serif;
 }
 
 .fun-fact-box:hover {
