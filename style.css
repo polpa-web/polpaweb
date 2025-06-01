@@ -232,3 +232,53 @@ footer {
   margin-top: 20px;
   text-align: left;
 }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #fff0c9;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #553c1a;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: #ff6600;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
