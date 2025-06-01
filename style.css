@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, #6dd5fa, #2980b9);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Quicksand', cursive, sans-serif;
   color: white;
   text-align: center;
   position: relative;
@@ -112,7 +112,7 @@ button#new-octopus {
   background: #9be7ff;
   background-image: linear-gradient(145deg, #a2f4ff, #6fd8ff);
   color: #003344;
-  font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+  font-family: 'Quicksand', 'Trebuchet MS', cursive;
   font-size: 1.3rem;
   font-weight: bold;
   border: none;
