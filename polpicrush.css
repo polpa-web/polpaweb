@@ -77,7 +77,17 @@ body.polpicrush-body::before {
   font-family: 'Baloo 2', cursive;
 }
 
-/* Wrapper titolo + mascotte */
+/* Container gioco */
+.game-container {
+  margin-left: 200px;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: 200px;
+}
+
+/* Header con mascotte */
 #header-with-mascot {
   display: flex;
   align-items: center;
@@ -87,50 +97,42 @@ body.polpicrush-body::before {
   flex-wrap: wrap;
 }
 
-/* Mascotte a lato del titolo */
 .mascot {
-  width: 85px;
+  width: 60px;
   height: auto;
-  margin: 0 10px;
-  vertical-align: middle;
 }
 
 .mascot.flip {
   transform: scaleX(-1);
 }
 
-/* Titolo della pagina */
+/* Titolo */
 .polpicrush-title {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: #fff4f8;
   text-shadow: 2px 2px 6px #ff69b4;
   margin: 0;
   font-family: 'Baloo 2', cursive;
 }
 
-/* Contenitore del gioco */
-.game-container {
-  margin-left: 220px; /* spazio per la sidebar */
-  padding: 20px;
-}
-
+/* Griglia di gioco */
 .polpicrush-board {
   display: grid;
   grid-template-columns: repeat(6, 60px);
-  grid-gap: 10px;
+  gap: 10px;
   justify-content: center;
-  margin: 40px auto;
+  margin: 40px auto 20px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   border: 3px dashed white;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
-  width: fit-content;
+  width: max-content;
 }
 
-/* Ogni tessera (polpino) */
+/* Tessere */
 .polpicrush-tile {
-  font-size: 2.5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +150,7 @@ body.polpicrush-body::before {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Punteggio / status */
+/* Punteggio */
 #score-board {
   margin-top: 10px;
   font-size: 1.2rem;
@@ -157,7 +159,7 @@ body.polpicrush-body::before {
   text-shadow: 1px 1px 3px deeppink;
 }
 
-/* Bottone reset o start */
+/* Pulsante nuovo gioco */
 #restart-polpicrush {
   margin-top: 20px;
   background: linear-gradient(145deg, #ffc1e3, #ffa8c5);
@@ -177,3 +179,39 @@ body.polpicrush-body::before {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6), inset 0 -4px 10px rgba(255,255,255,0.5);
 }
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .game-container {
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  #header-with-mascot {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .polpicrush-board {
+    grid-template-columns: repeat(6, 45px);
+  }
+
+  .polpicrush-tile {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+
+  .mascot {
+    width: 50px;
+  }
+
+  .polpicrush-title {
+    font-size: 2rem;
+  }
+}
+
