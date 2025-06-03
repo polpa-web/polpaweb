@@ -223,7 +223,7 @@ footer p {
 .sidebar {
   width: 180px;
   height: 100vh;
-  background: linear-gradient(160deg, #ff8a80, #ffb74d);
+  background: linear-gradient(160deg, #ff99ac, #ffd6a5);
   color: #fff;
   position: fixed;
   top: 0;
@@ -263,7 +263,6 @@ footer p {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-}
 
 /* Main content - Sposta per far spazio alla sidebar */
 .main-content {
