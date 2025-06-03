@@ -6,7 +6,7 @@ const squares = [];
 let score = 0;
 
 const octoImages = [
-  "🟣", "🟠", "🔵", "🟡", "🟢", "🔴"
+  "🐙", "🐚", "🪼", "🦑", "🐡", "🦀"
 ];
 
 function createBoard() {
