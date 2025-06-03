@@ -118,7 +118,7 @@ body.polpicrush-body::before {
 /* Griglia di gioco */
 .polpicrush-board {
   display: grid;
-  grid-template-columns: repeat(6, 60px);
+  grid-template-columns: repeat(8, 60px);
   gap: 10px;
   justify-content: center;
   margin: 40px auto 20px;
@@ -197,7 +197,7 @@ body.polpicrush-body::before {
   }
 
   .polpicrush-board {
-    grid-template-columns: repeat(6, 45px);
+    grid-template-columns: repeat(8, 45px);
   }
 
   .polpicrush-tile {
