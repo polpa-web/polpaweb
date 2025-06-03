@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ffb6c1, #ff8a80);
+  font-family: 'Baloo 2', cursive;
+  color: #fff;
+  text-align: center;
+}
+
+.game-container {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px #ff4081;
+}
+
+#game-board {
+  width: 320px;
+  height: 320px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  background-color: #fff;
+  border: 5px solid #ff4081;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  cursor: pointer;
+  border-radius: 6px;
+}
