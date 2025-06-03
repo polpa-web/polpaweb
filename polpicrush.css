@@ -23,8 +23,48 @@ body.polpicrush-body::before {
   z-index: -1;
 }
 
+/* Sidebar polposa */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(255, 192, 203, 0.3);
+  z-index: 10;
+  font-family: 'Baloo 2', cursive;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  color: #fff0f5;
+  text-shadow: 1px 1px 3px hotpink;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: deeppink;
+}
+
 /* Titolo della pagina */
-h1.polpicrush-title {
+.polpicrush-title {
   font-size: 3rem;
   color: #fff0f5;
   text-shadow: 2px 2px 6px hotpink;
@@ -33,6 +73,11 @@ h1.polpicrush-title {
 }
 
 /* Contenitore del gioco */
+.game-container {
+  margin-left: 220px; /* spazio per la sidebar */
+  padding: 20px;
+}
+
 .polpicrush-board {
   display: grid;
   grid-template-columns: repeat(6, 60px);
@@ -96,4 +141,3 @@ h1.polpicrush-title {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6), inset 0 -4px 10px rgba(255,255,255,0.5);
 }
-
