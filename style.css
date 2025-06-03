@@ -166,6 +166,10 @@ footer {
   font-family: 'Nunito', sans-serif;
 }
 
+footer p {
+  margin: 0;
+}
+
 /* Sezione commenti */
 #comments-section {
   background-color: rgba(255, 255, 255, 0.1);
@@ -280,4 +284,20 @@ footer {
 .fun-fact-box:hover {
   transform: scale(1.02);
   background-color: rgba(255, 240, 245, 0.3);
+}
+
+/* 👑 UNIFICAZIONE POLPAMENU */
+.menu {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* 📚 POLPEDIA FONT FIX */
+#polpopedia-content {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
