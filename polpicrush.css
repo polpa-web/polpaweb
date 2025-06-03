@@ -77,15 +77,15 @@ body.polpicrush-body::before {
   font-family: 'Baloo 2', cursive;
 }
 
-/* Container gioco */
+
+ /* Container gioco */
 .game-container {
-  margin-left: 200px;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
+  padding: 1rem;
   max-width: 900px;
-  margin-right: auto;
-  margin-left: 200px;
+  margin: 20px auto 0 auto; /* centrato e più vicino al titolo */
+  box-sizing: border-box;
 }
+
 
 /* Header con mascotte */
 #header-with-mascot {
