@@ -23,45 +23,60 @@ body.polpicrush-body::before {
   z-index: -1;
 }
 
-/* Sidebar polposa */
+/* Sidebar - Stile uniforme ovunque */
 .sidebar {
+  width: 180px;
+  height: 100vh;
+  background: linear-gradient(160deg, #ff99ac, #ffd6a5);
+  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(255, 192, 203, 0.3);
-  z-index: 10;
-  font-family: 'Baloo 2', cursive;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
-  font-size: 1.5rem;
-  color: #fff0f5;
-  text-shadow: 1px 1px 3px hotpink;
+  margin-bottom: 1rem;
+  font-family: 'Baloo 2', cursive;
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style: none; /* 💥 ADDIO PALLINI! */
   padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
-  margin: 15px 0;
+  margin-bottom: 0.5rem;
 }
 
 .sidebar a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  transition: color 0.3s;
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
 }
 
 .sidebar a:hover {
-  color: deeppink;
+  background-color: rgba(255, 255, 255, 0.2);
 }
+
+
+/* Main content - Sposta per far spazio alla sidebar */
+.main-content {
+  flex: 1;
+  margin-left: 180px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  font-family: 'Baloo 2', cursive;
+}
+
 
 /* Titolo della pagina */
 .polpicrush-title {
