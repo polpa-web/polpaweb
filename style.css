@@ -218,6 +218,7 @@ footer p {
   min-height: 100vh;
 }
 
+
 /* Sidebar - Stile uniforme ovunque */
 .sidebar {
   width: 180px;
@@ -266,6 +267,7 @@ footer p {
 
 /* Main content - Sposta per far spazio alla sidebar */
 .main-content {
+  flex: 1;
   margin-left: 180px;
   padding: 1.5rem;
   box-sizing: border-box;
