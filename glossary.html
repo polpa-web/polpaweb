@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQUIDDY GLOSSARY 📖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .glossary-container {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 0 20px 10px;
+    }
+
+    .entry-box {
+      background: rgba(255, 240, 245, 0.15);
+      border-left: 6px solid #ffb6c1;
+      border-radius: 15px;
+      padding: 20px 24px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(255, 192, 203, 0.2);
+      transition: transform 0.2s ease;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .entry-box:hover {
+      transform: scale(1.01);
+      background-color: rgba(255, 240, 245, 0.25);
+    }
+
+    .entry-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .headword {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.6rem;
+      color: #fff4f8;
+      text-shadow: 1px 1px 4px rgba(255, 105, 180, 0.6);
+      line-height: 1.2;
+    }
+
+    .ipa {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .pos-badge {
+      font-size: 0.75rem;
+      font-weight: bold;
+      font-family: 'Nunito', sans-serif;
+      background: rgba(255, 182, 193, 0.35);
+      color: #ffe0ea;
+      border: 1px solid rgba(255, 182, 193, 0.5);
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pos-badge.food {
+      background: rgba(180, 255, 200, 0.2);
+      color: #c8ffe0;
+      border-color: rgba(180, 255, 200, 0.4);
+    }
+
+    .pos-badge.holiday {
+      background: rgba(255, 220, 100, 0.2);
+      color: #fff3c0;
+      border-color: rgba(255, 220, 100, 0.4);
+    }
+
+    .definitions {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      padding-left: 1.4rem;
+    }
+
+    .definitions li { margin-bottom: 4px; }
+
+    .entry-meta {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+    }
+
+    .entry-meta strong {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .example-box {
+      margin-top: 10px;
+      background: rgba(0, 0, 0, 0.15);
+      border-left: 3px solid rgba(255, 182, 193, 0.6);
+      border-radius: 0 10px 10px 0;
+      padding: 8px 14px;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-style: italic;
+    }
+
+    .contrary-badge {
+      display: inline-block;
+      background: rgba(255, 120, 100, 0.25);
+      color: #ffcfc9;
+      border: 1px solid rgba(255, 120, 100, 0.4);
+      font-size: 0.8rem;
+      font-style: italic;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: 4px;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 30px 20px 0;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .glossary-intro {
+      font-family: 'Nunito', sans-serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      margin: 10px 20px 0;
+      line-height: 1.6;
+    }
+
+    .glossary-footer-note {
+      text-align: center;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      padding: 10px 20px 20px;
+      font-family: 'Nunito', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2>🦑 POLPAMENU</h2>
+      <ul>
+        <li><a href="index.html">🖼️ Home</a></li>
+        <li><a href="fun-facts.html">🧠 Fun Facts</a></li>
+        <li><a href="polpopedia.html">📚 Polpopedia</a></li>
+        <li><a href="polpicrush.html">💥 Polpicrush</a></li>
+        <li><a href="glossary.html">📖 Squiddy Glossary</a></li>
+      </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <div id="header-with-mascot">
+        <img class="mascot" src="images/mascotte.jpg" alt="Polpina left">
+        <h1>📖 SQUIDDY GLOSSARY</h1>
+        <img class="mascot flip" src="images/mascotte.jpg" alt="Polpina right">
+      </div>
+
+      <div id="hearts">💖💖💖</div>
+
+      <p class="glossary-intro">
+        A scholarly reference volume on the most commonly used vocabulary in the language of the polps.<br>
+        <em>Est. Valencia · All entries verified by at least one cephalopod.</em>
+      </p>
+
+      <!-- ══ PART I ══ -->
+      <div class="section-divider">§ Part I — Understanding Polpiness</div>
+      <div class="glossary-container">
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpino, -a</span>
+            <span class="ipa">/pol'pino/</span>
+            <span class="pos-badge">noun</span>
+          </div>
+          <ol class="definitions">
+            <li>The most adorable form of a cephalopod.</li>
+            <li>A term of endearment referring to a squiddy being who enjoys both knuffels and coccole.</li>
+            <li>A squishy blue puppet called 'Polpina' that was gifted to an Italian lady by a Dutch guy in Valencia.</li>
+          </ol>
+          <div class="entry-meta"><strong>Etymology:</strong> it. polpetta › polpina — first used in Valencia, when a Dutch man attempted the word 'polpetta' and made the cutest mistake.</div>
+          <div class="entry-meta"><strong>Short forms:</strong> polpi, polpa, polpo</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">POLP</span>
+            <span class="ipa">/polp/</span>
+            <span class="pos-badge">exclamation</span>
+            <span class="pos-badge">noun</span>
+          </div>
+          <ol class="definitions">
+            <li>A universal form for any emotional reaction.</li>
+            <li>Synonym of <em>polpino, -a</em>, often preceded by article.</li>
+          </ol>
+          <div class="example-box">"POLP!"</div>
+          <div class="entry-meta"><strong>Contrary:</strong> <span class="contrary-badge">TOK</span></div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpare</span>
+            <span class="ipa">/pol'pare/</span>
+            <span class="pos-badge">verb [I]</span>
+          </div>
+          <ol class="definitions">
+            <li>Activity that concerns the expression of affection.</li>
+            <li>To exist in a form of full love and enjoy the presence of a fellow squid.</li>
+            <li>Caddeling.</li>
+          </ol>
+          <div class="example-box">"Basta studiare, è giunta l'ora di polpare!"</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpfriend</span>
+            <span class="ipa">/polp'frend/</span>
+            <span class="pos-badge">noun</span>
+          </div>
+          <ol class="definitions">
+            <li>A polp who is also a friend.</li>
+            <li>More than a boyfriend or girlfriend: a polpfriend is a partner who gives eight times as many hugs and kisses.</li>
+            <li>A life companion who shares your same passions (e.g. beers, Mirko Mariotti, AI Lodo song, pizza, zotty stuff, the goose game…)</li>
+          </ol>
+          <div class="example-box">"Having a Polpfriend is a squiddy experience, if you are willing to accept everlasting farts."</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polptrex</span>
+            <span class="ipa">/'polptrεks/</span>
+            <span class="pos-badge">noun</span>
+          </div>
+          <ol class="definitions">
+            <li>A polp who is also a t-rex.</li>
+            <li>Refers to Miss Polpa Toso.</li>
+            <li>The actual meaning of this expression is unknown; only Mr. Misja Polpelius has the answer.</li>
+          </ol>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpiful</span>
+            <span class="ipa">/'polpɪfʊl/</span>
+            <span class="pos-badge">adjective</span>
+          </div>
+          <ol class="definitions">
+            <li>Full of squiddy energy.</li>
+            <li>A situation, person, activity, or entity that radiates the POLP factor.</li>
+          </ol>
+          <div class="entry-meta"><strong>Superlative:</strong> polpifulissimo, -a</div>
+          <div class="example-box">"What do I think about the song <em>Our House</em>? Oh, it is absolutely polpiful!"</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpiness</span>
+            <span class="ipa">/'polpines/</span>
+            <span class="pos-badge">noun</span>
+          </div>
+          <ol class="definitions">
+            <li>State of being a polp.</li>
+            <li>Joyful feeling shared in various occasions by two squiddies.</li>
+            <li>Quality possessed by anything that is jolly and squiddy.</li>
+          </ol>
+          <div class="entry-meta"><strong>Synonym:</strong> polpifulness</div>
+        </div>
+
+      </div>
+
+      <!-- ══ PART II ══ -->
+      <div class="section-divider">§ Part II — Polp Gastronomy</div>
+      <div class="glossary-container">
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpcake</span>
+            <span class="ipa">/'polpkeɪk/</span>
+            <span class="pos-badge food">food</span>
+          </div>
+          <ol class="definitions">
+            <li>Gooey recipe from the Netherlands, cooked with a squiddy twist.</li>
+            <li>Salty or sweet, it always makes the belly happy with its crunch and softness.</li>
+            <li>The best dinner!</li>
+          </ol>
+          <div class="example-box">"Can we make Polpcakes tonight?" / "But we had them yesterday, and the day before, and the day before, and the day before… ñam, of course we can!"</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpfertjes</span>
+            <span class="ipa">/'polpfərtʃəs/</span>
+            <span class="pos-badge food">food</span>
+          </div>
+          <ol class="definitions">
+            <li>Delicious and fluffy Nijntje-shaped mini polpcakes.</li>
+            <li>The yummiest solution to fix a tokkie day.</li>
+            <li>Little clouds of jolliness, often consumed with butter and powdered sugar.</li>
+          </ol>
+          <div class="example-box">"Ik houd van Polpfertjes! Kunnen we ze maken met onze Nijntje-Polpfertjespan van de Hema, de beste winkel ter world?"</div>
+        </div>
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Buon Polpetito</span>
+            <span class="ipa">/bwɔn polpe'tito/</span>
+            <span class="pos-badge food">expression</span>
+          </div>
+          <ol class="definitions">
+            <li>Said before enjoying a pizza, pita falafel, polpcake, noodles, or anything gooey.</li>
+            <li>From the Italian <em>buon appetito</em>, adapted for squiddy communication.</li>
+            <li>Must be used only for meals shared with a fellow polpfriend.</li>
+          </ol>
+          <div class="entry-meta"><strong>Short form:</strong> buon polpe!</div>
+        </div>
+
+      </div>
+
+      <!-- ══ PART III ══ -->
+      <div class="section-divider">§ Part III — Polp Calendar</div>
+      <div class="glossary-container">
+
+        <div class="entry-box">
+          <div class="entry-head">
+            <span class="headword">Polpiversary</span>
+            <span class="ipa">/polpivərsəri/</span>
+            <span class="pos-badge holiday">holiday</span>
+          </div>
+          <ol class="definitions">
+            <li>The celebration of the day that the polps decided to swim together.</li>
+            <li>13th of September.</li>
+            <li>An extremely polpiful day which is all about acting squiddy and jolly, giving each other presents and having dolci coccole.</li>
+          </ol>
+          <div class="example-box">"It's only the 14th of February, but I can't wait to say Happy Polpiversary!"</div>
+        </div>
+
+      </div>
+
+      <p class="glossary-footer-note">
+        💖 End of Part I · Part II forthcoming (maybe) · POLPOLPOLPOLPOLPOLPOLP 💖
+      </p>
+
+      <footer>
+        <p>
+          POLPAWEB.COM 🐙🦑 — The squiddiest website on the internet!
+          POLPOLPOLPOLPOLPOLPOLP. POLP! EVVIVA I POLPINI!
+        </p>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
